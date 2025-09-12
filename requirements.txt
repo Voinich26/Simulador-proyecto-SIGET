@@ -1,0 +1,21 @@
+# Simulador de Planificación de Proyectos SIGET
+# Requisitos del sistema
+
+# Interfaz gráfica (incluida en Python estándar)
+# tkinter - No requiere instalación adicional
+
+# Librerías estándar utilizadas:
+# - threading (para ejecución en paralelo)
+# - time (para pausas y timestamps)
+# - enum (para enumeraciones)
+# - dataclasses (para estructuras de datos)
+# - typing (para anotaciones de tipo)
+
+# Python 3.7+ requerido para:
+# - dataclasses
+# - typing.Optional
+# - f-strings
+
+# No se requieren dependencias externas adicionales
+
+

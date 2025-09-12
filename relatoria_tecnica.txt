@@ -1,0 +1,106 @@
+RELATORÍA TÉCNICA
+SIMULADOR DE PLANIFICACIÓN DE PROYECTOS SIGET
+
+1. INTRODUCCIÓN
+
+El presente documento describe la implementación de un simulador de planificación de procesos para el Sistema Inteligente de Gestión del Tráfico (SIGET). El simulador fue desarrollado en Python 3.7+ utilizando la librería tkinter para la interfaz gráfica, implementando cuatro algoritmos de planificación de procesos y representando visualmente los estados por los que transitan los procesos durante su ejecución.
+
+2. ARQUITECTURA DEL SISTEMA
+
+2.1 Estructura de Clases
+El simulador está implementado siguiendo principios de Programación Orientada a Objetos:
+
+- ProcesoSIGET: Clase principal que representa un proceso del sistema, conteniendo atributos como ID, nombre, tipo, tiempo de irrupción, tiempo de ejecución, prioridad de alerta, tamaño de datos y estado actual.
+
+- EstadoProceso: Enumeración que define los cinco estados posibles de un proceso: Nuevo, Listo, En Ejecución, Bloqueado y Terminado.
+
+- TipoProceso: Enumeración que clasifica los procesos en tres categorías del SIGET: Monitoreo de Tráfico, Gestión de Semáforos y Análisis de Datos.
+
+- AlgoritmoPlanificacion: Clase estática que implementa los cuatro algoritmos de planificación: FIFO, SJF, Prioridad y Round Robin.
+
+- SimuladorSIGET: Clase principal que gestiona la lógica de simulación, incluyendo la ejecución de procesos y el manejo de colas.
+
+- InterfazSimulador: Clase que implementa la interfaz gráfica utilizando tkinter.
+
+2.2 Procesos del SIGET
+Se implementaron tres tipos de procesos representativos del sistema de tráfico:
+
+1. Monitoreo de Tráfico: Procesos que supervisan el flujo vehicular en tiempo real, con alta prioridad y manejo de grandes volúmenes de datos.
+
+2. Gestión de Semáforos: Procesos que controlan la sincronización y temporización de semáforos, con prioridad media-alta y tiempos de ejecución moderados.
+
+3. Análisis de Datos: Procesos que procesan información estadística y generan reportes, con prioridad variable y tiempos de ejecución más largos.
+
+3. ALGORITMOS DE PLANIFICACIÓN IMPLEMENTADOS
+
+3.1 FIFO (First In, First Out)
+Los procesos se ejecutan en orden de llegada (tiempo de irrupción). Implementación simple pero puede generar problemas de espera para procesos largos.
+
+3.2 SJF (Shortest Job First)
+Los procesos con menor tiempo de ejecución se ejecutan primero. Optimiza el tiempo promedio de espera pero requiere conocimiento previo del tiempo de ejecución.
+
+3.3 Planificación por Prioridad
+Los procesos se ejecutan según su prioridad de alerta (1-5, donde 1 es máxima prioridad). Permite manejar situaciones críticas del tráfico de manera eficiente.
+
+3.4 Round Robin
+Los procesos se ejecutan en turnos con un quantum configurable (1-10 unidades de tiempo). Garantiza equidad en el acceso al procesador y evita la inanición.
+
+4. REPRESENTACIÓN DE ESTADOS
+
+El simulador visualiza claramente los cinco estados de los procesos:
+
+- Nuevo: Proceso recién creado, en color azul claro
+- Listo: Proceso esperando ejecución, en color amarillo claro
+- En Ejecución: Proceso actualmente ejecutándose, en color verde claro
+- Bloqueado: Proceso esperando recursos, en color rojo claro
+- Terminado: Proceso completado, en color azul oscuro
+
+5. INTERFAZ GRÁFICA
+
+5.1 Componentes Principales
+- Tabla de procesos con información detallada de cada proceso
+- Panel de información de simulación en tiempo real
+- Controles para selección de algoritmo y configuración de parámetros
+- Log de eventos con timestamps
+- Estadísticas de rendimiento (tiempo promedio de espera y respuesta)
+
+5.2 Funcionalidades
+- Ejecución en tiempo real con pausas visuales
+- Actualización dinámica de la interfaz durante la simulación
+- Capacidad de resetear y reiniciar la simulación
+- Generación automática de procesos de ejemplo
+- Visualización de estadísticas de rendimiento
+
+6. RESULTADOS Y EVALUACIÓN
+
+6.1 Criterios de Evaluación Cumplidos
+✓ Implementación técnica del simulador: Completamente implementado con arquitectura modular
+✓ Aplicación de algoritmos de planificación: Cuatro algoritmos implementados y funcionales
+✓ Representación de estados del proceso: Los cinco estados claramente visualizados
+✓ Documento explicativo: Relatoría técnica completa
+✓ Evidencia de ejecución: Interfaz gráfica funcional con simulación en tiempo real
+
+6.2 Características Técnicas Destacadas
+- Uso de hilos de ejecución para evitar bloqueo de la interfaz
+- Implementación de patrones de diseño (Strategy para algoritmos)
+- Manejo robusto de estados y transiciones de procesos
+- Interfaz intuitiva y fácil de usar
+- Código bien documentado y modular
+
+7. CONCLUSIONES
+
+El simulador de planificación de procesos SIGET cumple exitosamente con todos los requisitos establecidos. La implementación demuestra una comprensión sólida de los conceptos de sistemas operativos, particularmente en el área de planificación de procesos. La interfaz gráfica proporciona una herramienta educativa efectiva para visualizar cómo los diferentes algoritmos de planificación afectan el rendimiento del sistema.
+
+La representación de los procesos del SIGET añade relevancia práctica al simulador, mostrando cómo los conceptos teóricos se aplican en sistemas reales de gestión de tráfico. El simulador es extensible y puede ser fácilmente modificado para incluir algoritmos adicionales o tipos de procesos específicos.
+
+8. RECOMENDACIONES FUTURAS
+
+- Implementar algoritmos de planificación multinivel
+- Añadir simulación de recursos compartidos y bloqueos
+- Incluir métricas adicionales de rendimiento
+- Implementar persistencia de configuraciones de simulación
+- Añadir capacidad de importar/exportar configuraciones de procesos
+
+El simulador representa una base sólida para el estudio y análisis de algoritmos de planificación de procesos en el contexto de sistemas de gestión de tráfico inteligente.
+
+
